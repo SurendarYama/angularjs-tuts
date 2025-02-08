@@ -13,5 +13,11 @@
         <h2>My Message is : {{message}}</h2>
         <input type="text" ng-model="message"/>
     </div>
+
+    <div ng-controller="NameCalculatorAppController">
+        <h2>Name Calculator</h2>
+        <div>your name : <input type="text" ng-model="name" ng-keyup="displayNumeric();"></div>
+        <div>Total Numeric value of person's name is: {{totalValue}} </div>
+    </div>
 </body>
 </html>
