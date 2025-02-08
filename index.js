@@ -4,5 +4,6 @@ console.log('Happy developing ✨');
     angular.module("myFirstApp", [])
         .controller("MyFirstController", function ($scope) {
             $scope.message = "Hello World!";
+            $scope.sayHi = () => "Hi.";
         })
 })();
