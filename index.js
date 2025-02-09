@@ -2,9 +2,9 @@ console.log('Happy developing ✨');
 (function () {
     "use strict";
     angular.module("myFirstApp", [])
-        .controller("MyFirstController", MyFirstController)
-        .controller("NameCalculatorAppController", NameCalculatorAppController )
-        .controller("DIController", DIController)
+        .controller("MyFirstController", ["$scope",MyFirstController])
+        .controller("NameCalculatorAppController", ["$scope",NameCalculatorAppController] )
+        .controller("DIController", ["$scope","$filter", DIController]);
 
         function MyFirstController ($scope) {
             $scope.message = "Hello World!";
@@ -24,7 +24,7 @@ console.log('Happy developing ✨');
                 let upCase = $filter("uppercase");
                 $scope.name = upCase($scope.name);
             }
-        };
+        }
 
 
         function calculateNumericForString(string){
