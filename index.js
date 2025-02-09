@@ -2,14 +2,17 @@ console.log('Happy developing ✨');
 (function () {
     "use strict";
     angular.module("myFirstApp", [])
-        .controller("MyFirstController", ["$scope",MyFirstController])
-        .controller("NameCalculatorAppController", ["$scope",NameCalculatorAppController] )
-        .controller("DIController", ["$scope","$filter", DIController]);
+        .controller("MyFirstController", MyFirstController)
+        .controller("NameCalculatorAppController", NameCalculatorAppController )
+        .controller("DIController", DIController);
 
+        MyFirstController.$inject = ['$scope']
         function MyFirstController ($scope) {
             $scope.message = "Hello World!";
             $scope.sayHi = () => "Hi.";
         }
+
+        NameCalculatorAppController.$inject = ['$scope'];
         function NameCalculatorAppController ($scope) {
             $scope.name = "";
             $scope.totalValue = 0;
@@ -18,6 +21,7 @@ console.log('Happy developing ✨');
             }
         }
 
+        DIController.$inject= ['$scope', '$filter'];
         function DIController ($scope, $filter) {
             $scope.name = "Surendar";
             $scope.upper = function () {
