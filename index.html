@@ -25,5 +25,13 @@
         <input type="text" ng-model="name" ng-blur="upper();"/>
         {{name}}
     </div>
+
+<div ng-controller="ExpAndIntropController">
+    <h2>Expressions and Interpolation</h2>
+    <div>
+        {{name}} Message is : <br>
+        {{sayMessage()}}
+    </div>
+</div>
 </body>
 </html>

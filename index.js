@@ -4,7 +4,8 @@ console.log('Happy developing ✨');
     angular.module("myFirstApp", [])
         .controller("MyFirstController", MyFirstController)
         .controller("NameCalculatorAppController", NameCalculatorAppController )
-        .controller("DIController", DIController);
+        .controller("DIController", DIController)
+        .controller("ExpAndIntropController", ExpAnaTntropController);
 
         MyFirstController.$inject = ['$scope']
         function MyFirstController ($scope) {
@@ -30,6 +31,11 @@ console.log('Happy developing ✨');
             }
         }
 
+        ExpAnaTntropController.$inject = ['$scope'];
+        function ExpAnaTntropController ($scope) {
+            $scope.name = "Yama";
+            $scope.sayMessage = () => "Surendar Yama is like to eat noodles...";
+        }
 
         function calculateNumericForString(string){
             let totalStringValue = 0;
