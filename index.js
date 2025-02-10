@@ -5,7 +5,8 @@ console.log('Happy developing ✨');
         .controller("MyFirstController", MyFirstController)
         .controller("NameCalculatorAppController", NameCalculatorAppController )
         .controller("DIController", DIController)
-        .controller("ExpAndIntropController", ExpAnaTntropController);
+        .controller("ExpAndIntropController", ExpAnaTntropController)
+        .controller("MyFilterController", MyFilterController);
 
         MyFirstController.$inject = ['$scope']
         function MyFirstController ($scope) {
@@ -26,15 +27,19 @@ console.log('Happy developing ✨');
         function DIController ($scope, $filter) {
             $scope.name = "Surendar";
             $scope.upper = function () {
-                let upCase = $filter("uppercase");
-                $scope.name = upCase($scope.name);
+                $scope.name = $filter("uppercase")($scope.name);
             }
         }
 
         ExpAnaTntropController.$inject = ['$scope'];
         function ExpAnaTntropController ($scope) {
-            $scope.name = "Yama";
+            $scope.name ="Yama";
             $scope.sayMessage = () => "Surendar Yama is like to eat noodles...";
+        }
+
+        MyFilterController.$inject = ['$scope'];
+        function MyFilterController($scope){
+            $scope.cost = 0.45;
         }
 
         function calculateNumericForString(string){

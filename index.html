@@ -26,12 +26,17 @@
         {{name}}
     </div>
 
-<div ng-controller="ExpAndIntropController">
-    <h2>Expressions and Interpolation</h2>
-    <div>
-        {{name}} Message is : <br>
-        {{sayMessage()}}
+    <div ng-controller="ExpAndIntropController">
+        <h2>Expressions and Interpolation</h2>
+        <div>
+            {{name}} Message is : <br>
+            {{sayMessage()}}
+        </div>
     </div>
-</div>
+
+    <div ng-controller="MyFilterController">
+        <h2>Filter</h2>
+        <div> {{ cost | currency}}</div>
+    </div>
 </body>
 </html>
