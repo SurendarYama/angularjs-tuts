@@ -5,7 +5,7 @@ console.log('Happy developing ✨');
         .controller("MyFirstController", MyFirstController)
         .controller("NameCalculatorAppController", NameCalculatorAppController )
         .controller("DIController", DIController)
-        .controller("ExpAndIntropController", ExpAnaTntropController)
+        .controller("ExpAndIntropController", ExpAndTntropController)
         .controller("MyFilterController", MyFilterController);
 
         MyFirstController.$inject = ['$scope']
@@ -31,8 +31,8 @@ console.log('Happy developing ✨');
             }
         }
 
-        ExpAnaTntropController.$inject = ['$scope'];
-        function ExpAnaTntropController ($scope) {
+        ExpAndTntropController.$inject = ['$scope'];
+        function ExpAndTntropController ($scope) {
             $scope.name ="Yama";
             $scope.sayMessage = () => "Surendar Yama is like to eat noodles...";
         }
