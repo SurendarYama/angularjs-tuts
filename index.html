@@ -29,14 +29,19 @@
     <div ng-controller="ExpAndIntropController">
         <h2>Expressions and Interpolation</h2>
         <div>
-            {{name}} Message is : <br>
-            {{sayMessage()}}
+            {{name}} Original Message is : <br>
+            {{sayMessage()}} <br>
+            Loves Message: <br>
+            {{sayLoves()}}
         </div>
     </div>
 
     <div ng-controller="MyFilterController">
         <h2>Filter</h2>
         <div> {{ cost | currency}}</div>
+
+        <div>{{message | loves | uppercase}}</div>
+        <div>{{message | loves | truth: "Dota 2" : "Cricket" }}</div>
     </div>
 </body>
 </html>

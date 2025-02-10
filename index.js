@@ -6,7 +6,9 @@ console.log('Happy developing ✨');
         .controller("NameCalculatorAppController", NameCalculatorAppController )
         .controller("DIController", DIController)
         .controller("ExpAndIntropController", ExpAndTntropController)
-        .controller("MyFilterController", MyFilterController);
+        .controller("MyFilterController", MyFilterController)
+        .filter('loves', LovesFilter)
+        .filter('truth', TruthFilter);
 
         MyFirstController.$inject = ['$scope']
         function MyFirstController ($scope) {
@@ -31,16 +33,39 @@ console.log('Happy developing ✨');
             }
         }
 
-        ExpAndTntropController.$inject = ['$scope'];
-        function ExpAndTntropController ($scope) {
+        ExpAndTntropController.$inject = ['$scope', 'lovesFilter'];
+        function ExpAndTntropController ($scope, lovesFilter) {
             $scope.name ="Yama";
-            $scope.sayMessage = () => "Surendar Yama is like to eat noodles...";
+            $scope.sayMessage = () => "Surendar Yama is likes to eat noodles...";
+            $scope.sayLoves = () => lovesFilter("Surendar Yama is likes to eat noodles...");
         }
 
         MyFilterController.$inject = ['$scope'];
         function MyFilterController($scope){
             $scope.cost = 0.45;
+            $scope.message = "I likes to play Dota 2";
         }
+
+        // filters...
+        function LovesFilter (){
+            return function(input){
+                input  = input || '';
+                input  = input.replace("likes", "loves")
+                return input;
+            }
+        }
+
+        function TruthFilter() {
+            return function(input, target, replace){
+                if (!input || !target || !replace) {
+                    throw new Error("input, target and replace is required");
+                }
+                input = input.replace(target, replace);
+                return input;
+            }
+        }
+
+        // end of filters ...
 
         function calculateNumericForString(string){
             let totalStringValue = 0;
