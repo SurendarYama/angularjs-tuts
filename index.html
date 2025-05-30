@@ -43,5 +43,14 @@
         <div>{{message | loves | uppercase}}</div>
         <div>{{message | loves | truth: "Dota 2" : "Cricket" }}</div>
     </div>
+    <div ng-controller="CounterController">
+        <button ng-click="showNumbersWatchers()">
+            Log Watchers
+        </button>
+        <div>
+            <button ng-click="countOnce()">Once Counter</button>
+            <button ng-click="upCounter()">Up Counter</button>
+        </div>
+    </div>
 </body>
 </html>

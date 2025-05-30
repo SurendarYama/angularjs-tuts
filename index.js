@@ -7,6 +7,7 @@ console.log('Happy developing ✨');
         .controller("DIController", DIController)
         .controller("ExpAndIntropController", ExpAndTntropController)
         .controller("MyFilterController", MyFilterController)
+        .controller("CounterController", CounterController)
         .filter('loves', LovesFilter)
         .filter('truth', TruthFilter);
 
@@ -73,5 +74,28 @@ console.log('Happy developing ✨');
                 totalStringValue += string.charCodeAt(i);
             }
             return totalStringValue;
+        }
+
+        CounterController.$inject  = ['$scope'];
+        function CounterController ($scope) {
+            $scope.onceCounter = 0;
+            $scope.counter = 0;
+            $scope.showNumbersWatchers = function(){
+                console.log("# of watchers: ", $scope.$$watchersCount);
+            };
+            $scope.countOnce = function(){
+                $scope.onceCounter = 1;
+            }
+            $scope.upCounter = function(){
+                $scope.counter++;
+            }
+            $scope.$watch('onceCounter', function(newValue, oldValue) {
+                console.log("New Value : ",newValue);
+                console.log("Old Value : ",oldValue);
+            })
+            $scope.$watch('counter',function (newValue, oldValue) {
+                console.log("Counter New Value : ",newValue);
+                console.log("Counter Old Value : ",oldValue);
+            })
         }
 })();
