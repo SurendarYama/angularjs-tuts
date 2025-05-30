@@ -47,9 +47,14 @@
         <button ng-click="showNumbersWatchers()">
             Log Watchers
         </button>
+        <input type="text" ng-model="name">
         <div>
             <button ng-click="countOnce()">Once Counter</button>
             <button ng-click="upCounter()">Up Counter</button>
+        </div>
+        <div>
+            onceCounter: {{onceCounter}} <br>
+            upCounter: {{counter}} <br>
         </div>
     </div>
 </body>

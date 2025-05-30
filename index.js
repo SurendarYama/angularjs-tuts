@@ -80,6 +80,7 @@ console.log('Happy developing ✨');
         function CounterController ($scope) {
             $scope.onceCounter = 0;
             $scope.counter = 0;
+            $scope.name = "Surendar Yama";
             $scope.showNumbersWatchers = function(){
                 console.log("# of watchers: ", $scope.$$watchersCount);
             };
@@ -89,13 +90,16 @@ console.log('Happy developing ✨');
             $scope.upCounter = function(){
                 $scope.counter++;
             }
-            $scope.$watch('onceCounter', function(newValue, oldValue) {
-                console.log("New Value : ",newValue);
-                console.log("Old Value : ",oldValue);
-            })
-            $scope.$watch('counter',function (newValue, oldValue) {
-                console.log("Counter New Value : ",newValue);
-                console.log("Counter Old Value : ",oldValue);
-            })
+            // $scope.$watch('onceCounter', function(newValue, oldValue) {
+            //     console.log("New Value : ",newValue);
+            //     console.log("Old Value : ",oldValue);
+            // })
+            // $scope.$watch('counter',function (newValue, oldValue) {
+            //     console.log("Counter New Value : ",newValue);
+            //     console.log("Counter Old Value : ",oldValue);
+            // })
+            $scope.$watch(function () {
+                return console.log("Digest Cycle is fired..");
+            });
         }
 })();
